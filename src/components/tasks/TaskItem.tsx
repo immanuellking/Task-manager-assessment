@@ -7,7 +7,7 @@ export default function TaskItem() {
         </div>
       </div>
       <div className="text-white my-4">
-        <h3 className="text-xl font-semibold">Buy groceries</h3>
+        <h3 className="text-xl font-semibold mb-2">Buy groceries</h3>
         <p className="text-sm text-slate-400">
           Buy groceries, package them and put them in fridge than wash the
           fruits and make juice so the family can drink
