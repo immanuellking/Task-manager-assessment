@@ -1,16 +1,20 @@
-export default function TaskItem() {
+import { useState } from "react";
+import { Task } from "../../store/tasksSlice";
+
+export default function TaskItem({task} : {task: Task}) {
+  const [isEdit, setIsEdit] = useState(false)
+  
   return (
-    <div className="bg-[#1E1E22] w-96 p-4 rounded-s-sm">
+    <div className="bg-[#1E1E22] p-4 rounded-s-sm">
       <div className="flex justify-end">
         <div className="bg-[#4338ca] text-xs text-white text-center py-1 px-3 rounded-sm">
-          To do
+          {task.status}
         </div>
       </div>
       <div className="text-white my-4">
-        <h3 className="text-xl font-semibold mb-2">Buy groceries</h3>
+        <h3 className="text-xl font-semibold mb-2">{task.title}</h3>
         <p className="text-sm text-slate-400">
-          Buy groceries, package them and put them in fridge than wash the
-          fruits and make juice so the family can drink
+          {task.description}
         </p>
       </div>
       <div className="flex justify-end gap-3">
