@@ -4,7 +4,7 @@ export interface Task {
   id: string;
   title: string;
   description?: string;
-  status: "todo" | "in progress" | "done";
+  status: "to do" | "in progress" | "done";
 }
 export interface TaskState {
   tasks: Task[];
@@ -21,8 +21,24 @@ export const tasksSlice = createSlice({
     addTask: (state, action: PayloadAction<Task>) => {
       state.tasks.push(action.payload);
     },
+    setEditingTask: (state, action: PayloadAction<Task | null>) => {
+      state.editingTask = action.payload;
+    },
+    updateTask: (state, action: PayloadAction<Task>) => {
+      const index = state.tasks.findIndex(
+        (task) => task.id === action.payload.id
+      );
+      if (index !== -1) {
+        state.tasks[index] = action.payload;
+      }
+      state.editingTask = null;
+    },
+    clearEditingTask: (state) => {
+      state.editingTask = null;
+    },
   },
 });
-export const { addTask } = tasksSlice.actions;
+export const { addTask, setEditingTask, updateTask, clearEditingTask } =
+  tasksSlice.actions;
 export const tasksSelector = (state: RootState) => state.tasksReducer;
 export default tasksSlice.reducer;
