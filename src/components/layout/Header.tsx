@@ -5,8 +5,8 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <>
-      <header className="border-b border-gray-600 px-4 py-6 lg:p-8 flex justify-between items-center">
-        <div className="flex-1 flex justify-center items-center">
+      <header className="border-b border-gray-600 px-4 py-6 lg:p-8 flex justify-between items-center w-full">
+        <div className="flex justify-center items-center">
           <h1 className="text-white hidden sm:block font-semibold lg:font-bold text-2xl lg:text-3xl m-0 p-0">
             Task Manager
           </h1>
@@ -14,7 +14,7 @@ export default function Header() {
             TM
           </h1>
         </div>
-        <div className="flex-1">
+        <div className="">
           <button
             className="bg-[#4338ca] text-white text-base font-medium px-3 sm:px-6 py-2 rounded-md hover:opacity-90 cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}
