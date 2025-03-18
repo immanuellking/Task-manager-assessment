@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Task, addTask, tasksSelector } from "../../store/tasksSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hook";
 
 export default function TaskModal({
   isOpen,
@@ -9,6 +11,21 @@ export default function TaskModal({
 }) {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
+
+  const dispatch = useAppDispatch();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const task: Task = {
+      id: Date.now().toString(),
+      title: title,
+      description: description,
+      status: "todo",
+    };
+    dispatch(addTask(task));
+    setIsOpen(false)
+  };
+
   return (
     <div
       className={`${
@@ -19,7 +36,7 @@ export default function TaskModal({
     >
       <div className="z-50 w-full">
         <form
-          //   onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
           className="p-4 py-8 sm:p-8 space-y-4 bg-black rounded-lg shadow-lg m-auto w-[90%] sm:w-[40rem]"
         >
           <h1 className="text-white text-2xl font-semibold">Add New Task</h1>
