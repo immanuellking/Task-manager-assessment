@@ -45,7 +45,7 @@ export default function TaskModal({
       dispatch(addTask(task));
     }
 
-    setIsOpen(false);
+    closeModal()
   };
 
   const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -68,6 +68,7 @@ export default function TaskModal({
       setStatus(editingTask.status);
       setIsEditing(true);
     } else {
+    dispatch(clearEditingTask()); 
       setTitle(""); 
       setDescription(""); 
       setStatus("to do");
