@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Task, setEditingTask } from "../../store/tasksSlice";
+import { Task, setEditingTask, deleteTask } from "../../store/tasksSlice";
 import { useAppDispatch } from "../../store/hook";
 import TaskModal from "./TaskModal";
 
@@ -59,7 +59,10 @@ export default function TaskItem({ task }: { task: Task }) {
               </g>
             </svg>
           </div>
-          <div className="hover:bg-[rgba(51,51,56,1)] rounded-full transition-all duration-150 ease-in cursor-pointer">
+          <div
+            className="hover:bg-[rgba(51,51,56,1)] rounded-full transition-all duration-150 ease-in cursor-pointer"
+            onClick={() => dispatch(deleteTask(task.id))}
+          >
             <svg
               className="p-2 w-[2.2rem]"
               fill="#ffffff"
