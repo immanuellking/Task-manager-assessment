@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 export interface Task {
   id: string;
@@ -9,10 +9,12 @@ export interface Task {
 export interface TaskState {
   tasks: Task[];
   editingTask: Task | null;
+  filterStatus: "all" | "to do" | "in progress" | "done";
 }
 const initialState: TaskState = {
   tasks: [],
   editingTask: null,
+  filterStatus: "all",
 };
 export const tasksSlice = createSlice({
   name: "tasks",
@@ -39,9 +41,31 @@ export const tasksSlice = createSlice({
     clearEditingTask: (state) => {
       state.editingTask = null;
     },
+    setFilterStatus: (
+      state,
+      action: PayloadAction<"all" | "to do" | "in progress" | "done">
+    ) => {
+      state.filterStatus = action.payload;
+    },
   },
 });
-export const { addTask, setEditingTask, updateTask, clearEditingTask, deleteTask } =
-  tasksSlice.actions;
+export const {
+  addTask,
+  setEditingTask,
+  updateTask,
+  clearEditingTask,
+  deleteTask,
+  setFilterStatus,
+} = tasksSlice.actions;
 export const tasksSelector = (state: RootState) => state.tasksReducer;
+export const filteredTasksSelector = createSelector(
+  [
+    (state: RootState) => state.tasksReducer.tasks,
+    (state: RootState) => state.tasksReducer.filterStatus,
+  ],
+  (tasks, filterStatus) => {
+    if (filterStatus === "all") return tasks;
+    return tasks.filter((task) => task.status === filterStatus);
+  }
+);
 export default tasksSlice.reducer;
