@@ -1,54 +1,25 @@
-# React + TypeScript + Vite
+# Task Management Dashboard (React, Tailwind, Redux-toolkit, Redux-persitor, Dark-mode)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **Task Management Dashboard** built with **React, Redux Toolkit, TypeScript, Redux Persist, and Tailwind CSS**. The app provides task creation, filtering, searching, and a dark mode toggle.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- **Task Management**: Add, edit, and delete tasks
+- **Task Filtering**: Filter tasks by status (**All, To Do, In Progress, Done**)
+- **Search Functionality**: Search tasks by title
+- **Dark Mode**: Toggle between light and dark themes (persisted with Redux)
+- **State Persistence**: Tasks and dark mode preference persist using Redux Persist
+- **Responsive Design**: Works across different screen sizes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Technologies Used
+- **React** – Frontend framework
+- **Redux Toolkit** – State management
+- **Redux Persist** – Persisting state across reloads
+- **TypeScript** – Type safety
+- **Tailwind CSS** – Styling
+- **Vite** – Build tool for a fast development experience
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 📦 Installation & Setup
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/task-management-dashboard.git
+   cd task-management-dashboard
