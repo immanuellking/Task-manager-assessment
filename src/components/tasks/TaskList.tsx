@@ -1,5 +1,5 @@
 import { useAppSelector } from "../../store/hook";
-import { filteredTasksSelector } from "../../store/tasksSlice";
+import { filteredTasksSelector, Task } from "../../store/tasksSlice";
 import TaskFilterBar from "./TaskFilterBar";
 import TaskItem from "./TaskItem";
 
@@ -8,8 +8,8 @@ export default function TaskList() {
   return (
     <section className="px-4 py-8 lg:p-8 space-y-8">
       <TaskFilterBar />
-      <div className="grid sm:grid-cols-3 lg:grid-cols-4 gap-4">
-        {filteredTasks.map((task) => (
+      <div className="grid sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-8">
+        {filteredTasks.map((task: Task) => (
           <TaskItem key={task.id} task={task} />
         ))}
       </div>

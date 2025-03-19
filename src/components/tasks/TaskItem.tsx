@@ -14,7 +14,7 @@ export default function TaskItem({ task }: { task: Task }) {
 
   return (
     <>
-      <div className="bg-[#1E1E22] p-4 rounded-s-sm">
+      <div className="dark:bg-[#1E1E22] p-4 rounded-s-sm shadow-md dark:shadow-none">
         <div className="flex justify-end">
           <div
             className={`bg-[#4338ca] text-xs text-white text-center py-1 px-3 rounded-sm ${
@@ -26,15 +26,15 @@ export default function TaskItem({ task }: { task: Task }) {
             {task.status}
           </div>
         </div>
-        <div className="text-white my-4">
+        <div className="dark:text-white my-4">
           <h3 className="text-xl font-semibold mb-2 capitalize">
             {task.title}
           </h3>
-          <p className="text-sm text-slate-400">{task.description}</p>
+          <p className="text-sm dark:text-slate-400">{task.description}</p>
         </div>
         <div className="flex justify-end gap-3">
           <div
-            className="hover:bg-[rgba(51,51,56,1)] rounded-full transition-all duration-150 ease-in cursor-pointer"
+            className="hover:bg-[rgba(51,51,56,1)] dark:bg-none bg-gray-800 rounded-full transition-all duration-150 ease-in cursor-pointer"
             onClick={handleEditingTask}
           >
             <svg
@@ -60,7 +60,7 @@ export default function TaskItem({ task }: { task: Task }) {
             </svg>
           </div>
           <div
-            className="hover:bg-[rgba(51,51,56,1)] rounded-full transition-all duration-150 ease-in cursor-pointer"
+            className="hover:bg-[rgba(51,51,56,1)] dark:bg-none bg-gray-800 rounded-full transition-all duration-150 ease-in cursor-pointer"
             onClick={() => dispatch(deleteTask(task.id))}
           >
             <svg
