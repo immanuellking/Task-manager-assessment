@@ -18,7 +18,7 @@ function TaskFilterBar() {
 
   return (
     <div className="flex justify-between">
-      <div className="text-white">
+      <div className="dark:text-white">
         {completedTasks} of {tasks.length} Done
       </div>
 

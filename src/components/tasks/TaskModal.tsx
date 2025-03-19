@@ -87,7 +87,7 @@ export default function TaskModal({
       <div className="z-50">
         <form
           onSubmit={handleSubmit}
-          className="p-4 py-8 sm:p-8 space-y-4 bg-black rounded-lg shadow-lg m-auto w-[90%] sm:w-[40rem]"
+          className="p-4 py-8 sm:p-8 space-y-4 bg-[#4338ca] dark:bg-black rounded-lg shadow-lg m-auto w-[90%] sm:w-[40rem]"
         >
           <h1 className="text-white text-2xl font-semibold">
             {isEditing ? "Edit Task" : "Add New Task"}
@@ -114,17 +114,15 @@ export default function TaskModal({
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Enter task description"
-              className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             />
           </div>
 
           <div>
-            <label className="block mb-2 font-medium text-white">
-              Description
-            </label>
+            <label className="block mb-2 font-medium text-white">Status</label>
             <select
-              className="border text-sm rounded-lg block text-white bg-gray-700 border-gray-600 w-full p-2.5 focus:ring-blue-500 focus:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 disabled:opacity-80 dark:disabled:opacity-50 disabled:cursor-not-allowed"
               name="status"
               value={status}
               onChange={handleStatusChange}
@@ -146,7 +144,7 @@ export default function TaskModal({
             </button>
             <button
               type="submit"
-              className="bg-[#4338ca] py-1.5 px-6 text-white rounded-b-sm cursor-pointer hover:bg-[#4338ca]/90"
+              className="bg-black dark:bg-[#4338ca] py-1.5 px-6 text-white rounded-b-sm cursor-pointer hover:bg-black/80 dark:hover:bg-[#4338ca]/90"
             >
               {isEditing ? "Update" : "Add"} Task
             </button>
@@ -154,7 +152,7 @@ export default function TaskModal({
         </form>
       </div>
       <div
-        className="bg-white/30 absolute top-0 left-0 bottom-0 right-0"
+        className="dark:bg-white/30 bg-black/80 absolute top-0 left-0 bottom-0 right-0"
         onClick={closeModal}
       ></div>
     </div>
