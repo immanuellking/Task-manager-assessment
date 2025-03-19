@@ -5,7 +5,6 @@ A **Task Management Dashboard** built with **React, Redux Toolkit, TypeScript, R
 ## 🚀 Features
 - **Task Management**: Add, edit, and delete tasks
 - **Task Filtering**: Filter tasks by status (**All, To Do, In Progress, Done**)
-- **Search Functionality**: Search tasks by title
 - **Dark Mode**: Toggle between light and dark themes (persisted with Redux)
 - **State Persistence**: Tasks and dark mode preference persist using Redux Persist
 - **Responsive Design**: Works across different screen sizes
